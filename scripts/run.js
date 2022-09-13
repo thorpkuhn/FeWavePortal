@@ -1,6 +1,7 @@
 const main = async () => {
     const waveContractFactory = await hre.ethers.getContractFactory("WavePortal");
-    const waveContract = await waveContractFactory.deploy();
+    //adding a string greeting here as script is expecting an argument
+    const waveContract = await waveContractFactory.deploy("Hellow, World!");
     await waveContract.deployed();
     console.log("Contract deployed to:", waveContract.address);
   };

@@ -1,10 +1,12 @@
 
 use std::context::Context
 contract WavePortal {
+    #kinda like a struct
     event MyEvent {
         greeting: String<100>
     }
+    #equivant for console log
    pub fn __init__(ctx: Context,greeting: String<100>) {
-        emit MyEvent(ctx,greeting: "Hello, world!")
+        emit MyEvent(ctx,greeting)
     }
 }
