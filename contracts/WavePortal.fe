@@ -1,0 +1,10 @@
+
+use std::context::Context
+contract WavePortal {
+    event MyEvent {
+        greeting: String<100>
+    }
+   pub fn __init__(ctx: Context,greeting: String<100>) {
+        emit MyEvent(ctx,greeting: "Hello, world!")
+    }
+}
