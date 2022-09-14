@@ -1,9 +1,18 @@
 const main = async () => {
+  const [owner, randomPerson] = await hre.ethers.getSigners();
     const waveContractFactory = await hre.ethers.getContractFactory("WavePortal");
     //adding a string greeting here as script is expecting an argument
-    const waveContract = await waveContractFactory.deploy("Hellow, World!");
+    const waveContract = await waveContractFactory.deploy("Hello");
     await waveContract.deployed();
     console.log("Contract deployed to:", waveContract.address);
+    console.log("Contract deployed by:", owner.address);
+    let waveCount;
+  waveCount = await waveContract.getTotalWaves();
+
+  let waveTxn = await waveContract.wave();
+  await waveTxn.wait();
+
+  waveCount = await waveContract.getTotalWaves();
   };
   
   const runMain = async () => {

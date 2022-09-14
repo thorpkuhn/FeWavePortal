@@ -1,12 +1,33 @@
 
 use std::context::Context
 contract WavePortal {
+      
+   totalWaves: u256
+
     #kinda like a struct
     event MyEvent {
         greeting: String<100>
+         
     }
+
+    event Wave {
+        totalWaves: u256
+    }
+
     #equivant for console log
    pub fn __init__(ctx: Context,greeting: String<100>) {
         emit MyEvent(ctx,greeting)
+    }
+
+    # use ‘self’ so update the smart contract state , like a refresg
+
+    pub fn wave(self,ctx: Context, totalWaves: u256 ) {
+        self.totalWaves += 1;
+      
+    }
+
+    pub fn getTotalWaves(self, totalWaves: u256) -> u256{
+        
+        return self.totalWaves;
     }
 }
