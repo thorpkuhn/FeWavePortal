@@ -15,6 +15,8 @@ contract WavePortal {
     }
 
     #equivant for console log
+    # pub fn __init__ to initialize the contract state
+    # emit statement. The contained expression needs to refer to an event.
    pub fn __init__(ctx: Context,greeting: String<100>) {
         emit MyEvent(ctx,greeting)
     }
