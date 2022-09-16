@@ -1,29 +1,30 @@
 const main = async () => {
+  //every 'await' needs an argument to be passed
   const [owner, randomPerson] = await hre.ethers.getSigners();
-    const waveContractFactory = await hre.ethers.getContractFactory("WavePortal");
-    //adding a string greeting here as script is expecting an argument
-    const waveContract = await waveContractFactory.deploy("Hello");
-    await waveContract.deployed();
-    console.log("Contract deployed to:", waveContract.address);
-    console.log("Contract deployed by:", owner.address);
-    let waveCount;
-  waveCount = await waveContract.getTotalWaves();
+  const waveContractFactory = await hre.ethers.getContractFactory("WavePortal");
+  const waveContract = await waveContractFactory.deploy("");
+  await waveContract.deployed();
 
-  let waveTxn = await waveContract.wave();
+  console.log("Contract deployed to:", waveContract.address);
+  console.log("Contract deployed by:", owner.address);
+
+  let waveCount;
+  waveCount = await waveContract.getTotalWaves(5);
+
+  let waveTxn = await waveContract.wave(5);
   await waveTxn.wait();
 
-  waveCount = await waveContract.getTotalWaves();
-  };
-  
-  const runMain = async () => {
-    try {
-      await main();
-      process.exit(0); // exit Node process without error
-    } catch (error) {
-      console.log(error);
-      process.exit(1); // exit Node process while indicating 'Uncaught Fatal Exception' error
-    }
-    // Read more about Node exit ('process.exit(num)') status codes here: https://stackoverflow.com/a/47163396/7974948
-  };
-  
-  runMain();
+  waveCount = await waveContract.getTotalWaves(5);
+};
+
+const runMain = async () => {
+  try {
+    await main();
+    process.exit(0);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+};
+
+runMain();
