@@ -7,14 +7,14 @@ const main = async () => {
 
   console.log("Contract deployed to:", waveContract.address);
   console.log("Contract deployed by:", owner.address);
-
+ //added instead the  waveContract.address for getting the # of waves and owner.address for signing the txns
   let waveCount;
-  waveCount = await waveContract.getTotalWaves(5);
+  waveCount = await waveContract.getTotalWaves(waveContract.address);
 
-  let waveTxn = await waveContract.wave(5);
+  let waveTxn = await waveContract.wave(owner.address);
   await waveTxn.wait();
 
-  waveCount = await waveContract.getTotalWaves(5);
+  waveCount = await waveContract.getTotalWaves(waveContract.address);
 };
 
 const runMain = async () => {
