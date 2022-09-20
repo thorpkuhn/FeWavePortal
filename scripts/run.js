@@ -1,8 +1,9 @@
 const main = async () => {
   //every 'await' needs an argument to be passed
   const [owner, randomPerson] = await hre.ethers.getSigners();
+  //added the WavePortal contract as this needs to be deployed
   const waveContractFactory = await hre.ethers.getContractFactory("WavePortal");
-  const waveContract = await waveContractFactory.deploy("");
+  const waveContract = await waveContractFactory.deploy("WavePortal");
   await waveContract.deployed();
 
   console.log("Contract deployed to:", waveContract.address);

@@ -1,0 +1,67 @@
+[
+  {
+    "type": "constructor",
+    "name": "__init__",
+    "inputs": [
+      {
+        "name": "greeting",
+        "type": "string"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "wave",
+    "inputs": [
+      {
+        "name": "totalWaves",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "function",
+    "name": "getTotalWaves",
+    "inputs": [
+      {
+        "name": "totalWaves",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "payable"
+  },
+  {
+    "type": "event",
+    "name": "MyEvent",
+    "inputs": [
+      {
+        "name": "greeting",
+        "type": "string",
+        "indexed": false
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Wave",
+    "inputs": [
+      {
+        "name": "totalWaves",
+        "type": "uint256",
+        "indexed": false
+      }
+    ],
+    "anonymous": false
+  }
+]
