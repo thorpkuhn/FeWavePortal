@@ -1,27 +1,20 @@
 
 use std::context::Context
+
+
 contract WavePortal {
       
    totalWaves: u256
-   greeting: String<100>
+  
 
     #kinda like a struct
-    event MyEvent {
-        greeting: String<100>
-         
-    }
-
-    event Wave {
-        totalWaves: u256
-    }
+  
+ 
 
     #equivant for console log
     # pub fn __init__ to initialize the contract state
     # emit statement. The contained expression needs to refer to an event.
-   pub fn __init__(self,ctx: Context,greeting: String<100>) {
-    emit MyEvent(ctx,greeting: String<100>("Hello"))
-       
-    }
+
 
    
    
@@ -29,12 +22,12 @@ contract WavePortal {
 
     # use ‘self’ so update the smart contract state , like a refresg
 
-    pub fn wave(self,ctx: Context, totalWaves: u256 ) {
-        self.totalWaves += 1;
+    pub fn wave(self,ctx: Context ) {
+       totalWaves += 1;
       
     }
 
-    pub fn getTotalWaves(self, totalWaves: u256) -> u256{
+    pub fn getTotalWaves(self) -> u256{
         
         return self.totalWaves;
     }

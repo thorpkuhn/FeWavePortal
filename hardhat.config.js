@@ -14,6 +14,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
+  contracts_build_directory: "./fewave/contracts",
   fe: {
     version: "0.19.1-alpha",
   },
